@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: taxdeclaration-service
+  datasource:
+    username: 'root'
+    url: jdbc:mysql://localhost:3306/taxdeclarationservice?serverTimezone=GMT
+    password:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+  security:
+    user:
+      name: 'user'
+      password: 'user'
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 'vifiehruth@gmail.com'
+    password: 'qkpkurzqutqxkuer'
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+taxdeclaration:
+  app:
+    jwtSecret: 'taxdeclarationservice'
+    jwtExpirationMs: '86400000'
+    jwtRefreshExpirationMs: '86400000'
+    baseUrlLocal: 'http://localhost:8080/'
